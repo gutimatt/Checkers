@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.checkersgame"},{"l":"com.checkersgame.core"},{"l":"com.checkersgame.core.enums"},{"l":"com.checkersgame.ui"}];updateSearchResults();
