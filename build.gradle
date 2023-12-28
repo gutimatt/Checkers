@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+javafx {
+    version = "17"
+    modules = ['javafx.controls', 'javafx.fxml'] // Add required JavaFX modules
+}
+
+repositories {
+    mavenCentral()
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+run {
+    mainClass = 'com.checkersgame.CheckersGameEngine' // Set the main class
+    standardInput = System.in // Allow standard input
+}
+
+task server(type: JavaExec) {
+    mainClass = 'com.checkersgame.CheckersGameServer'
+
+    classpath = files(sourceSets.main.runtimeClasspath.files)
+
+    def javafxLibsDir = sourceSets.main.runtimeClasspath.getAsPath()
+    jvmArgs = ['--module-path', javafxLibsDir, '--add-modules', 'javafx.controls,javafx.fxml']
+}
